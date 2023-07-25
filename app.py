@@ -64,7 +64,7 @@ def main():
     bars_info = read_json_file('coffee.json')
     yandex_api_key = os.getenv('YANDEX_API_KEY')
     my_place = input('Введите город: ')
-    my_coordinates = fetch_coordinates(yandex_api_key,my_place)
+    my_coordinates = fetch_coordinates(yandex_api_key, my_place)
     top_bars = get_top_bars_info(bars_info, my_coordinates)
     m = folium.Map(
         location=my_coordinates,
