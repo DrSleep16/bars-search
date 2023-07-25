@@ -66,7 +66,7 @@ def main():
     my_place = input('Введите город: ')
     my_coordinates = fetch_coordinates(yandex_api_key, my_place)
     top_bars = get_top_bars_info(bars_info, my_coordinates)
-    m = folium.Map(
+    map = folium.Map(
         location=my_coordinates,
         zoom_start=12,
         tiles="Stamen Terrain")
@@ -76,8 +76,8 @@ def main():
             [bar['Широта'], bar['Долгота']],
             popup=f"<i>{bar['Название кофейни']}</i>",
             tooltip=tooltip
-        ).add_to(m)
-    m.save("index.html")
+        ).add_to(map)
+    map.save("index.html")
     with open('index.html', 'rb') as file:
         return file.read()
 
