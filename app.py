@@ -59,7 +59,7 @@ def get_top_bars_info(bars, my_coordinates):
     return sorted(bars_info, key=lambda x: x['Расстояние'])[:5]
 
 
-def main():
+def get_map():
     load_dotenv()
     bars_info = read_json_file('coffee.json')
     yandex_api_key = os.getenv('YANDEX_API_KEY')
@@ -84,5 +84,5 @@ def main():
 
 if __name__ == '__main__':
     app = Flask(__name__)
-    app.add_url_rule('/', 'map', main)
+    app.add_url_rule('/', 'map', get_map)
     app.run('0.0.0.0')
